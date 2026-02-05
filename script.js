@@ -30,6 +30,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Handle anchor links when navigating from other pages
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    const target = document.querySelector(hash);
+    if (target) {
+      // Small delay to ensure page is fully loaded
+      setTimeout(() => {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  }
+});
+
 // Add active class to current navigation item
 const currentLocation = location.pathname.split('/').pop() || 'index.html';
 const navLinks = document.querySelectorAll('.nav-link');
