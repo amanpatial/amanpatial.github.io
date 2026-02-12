@@ -1258,6 +1258,13 @@ section {
 /* Contact Form */
 .contact-section {
   background: var(--light-bg);
+  padding: 4rem 0;
+}
+
+#schedule-consultation {
+  background: #fff;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .contact-content {
@@ -1340,6 +1347,25 @@ section {
 .contact-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #1e293b;
+}
+
+/* Email icon - dark color */
+.contact-item:first-child .contact-icon svg {
+  color: #1e293b;
+}
+
+/* LinkedIn icon - primary color */
+.contact-item:last-child .contact-icon svg {
+  color: var(--primary-color);
 }
 
 .contact-item h3 {
@@ -1615,24 +1641,52 @@ section {
 }
 
 /* Calendly Widget Styling */
+.calendly-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .calendly-inline-widget {
   width: 100%;
   min-width: 320px;
-  height: 700px;
+  height: 1000px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+/* Ensure Calendly iframe is properly styled */
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
+  .calendly-container {
+    padding: 1.5rem 0.75rem;
+    margin: 0 1rem;
+  }
+  
   .calendly-inline-widget {
-    height: 600px;
+    height: 800px;
   }
 }
 
 @media (max-width: 480px) {
+  .calendly-container {
+    padding: 1rem 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 8px;
+  }
+  
   .calendly-inline-widget {
-    height: 500px;
+    height: 700px;
     min-width: 100%;
   }
 }

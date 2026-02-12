@@ -80,24 +80,34 @@ document.addEventListener('DOMContentLoaded', () => {
   animateElements.forEach(el => observer.observe(el));
 });
 
-// Contact form handler
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    // Client-side only: show success message (no backend)
-    let messageEl = document.querySelector('.form-message');
-    if (!messageEl) {
-      messageEl = document.createElement('div');
-      messageEl.className = 'form-message';
-      contactForm.appendChild(messageEl);
-    }
-    messageEl.textContent = 'Thank you for your message! I will get back to you soon.';
-    messageEl.classList.add('success');
-    messageEl.style.display = 'block';
-    contactForm.reset();
-  });
+// Load footer component
+function loadFooter() {
+  const footerPlaceholder = document.getElementById('footer-placeholder');
+  if (footerPlaceholder) {
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(html => {
+        footerPlaceholder.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error loading footer:', error);
+        // Fallback: show error message or keep placeholder empty
+      });
+  }
+}
+
+// Load footer when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadFooter);
+} else {
+  // DOM is already ready
+  loadFooter();
 }
 
 // Navbar scroll effect
