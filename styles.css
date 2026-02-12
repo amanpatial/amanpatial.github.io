@@ -1644,10 +1644,11 @@ section {
 .calendly-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .calendly-inline-widget {
@@ -1657,6 +1658,8 @@ section {
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 /* Ensure Calendly iframe is properly styled */
@@ -1665,22 +1668,72 @@ section {
   height: 100% !important;
   border: none !important;
   border-radius: 8px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Minimize Calendly widget internal spacing */
+.calendly-inline-widget .calendly-badge-widget,
+.calendly-inline-widget .calendly-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Target Calendly's internal wrapper elements */
+.calendly-inline-widget > * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove any spacing from container class in this section */
+#schedule-consultation .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Ensure no extra spacing in Calendly container */
+#schedule-consultation {
+  padding-top: 2rem !important;
+  padding-bottom: 1rem !important;
+}
+
+#schedule-consultation .contact-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#schedule-consultation .section-title {
+  margin-bottom: 1rem;
+}
+
+#schedule-consultation .lead {
+  margin-bottom: 1rem !important;
+}
+
+#schedule-consultation .calendly-container {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
   .calendly-container {
-    padding: 1.5rem 0.75rem;
+    padding: 0;
     margin: 0 1rem;
   }
   
   .calendly-inline-widget {
     height: 800px;
   }
+  
+  #schedule-consultation {
+    padding-top: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
 }
 
 @media (max-width: 480px) {
   .calendly-container {
-    padding: 1rem 0.5rem;
+    padding: 0;
     margin: 0 0.5rem;
     border-radius: 8px;
   }
@@ -1688,6 +1741,19 @@ section {
   .calendly-inline-widget {
     height: 700px;
     min-width: 100%;
+  }
+  
+  #schedule-consultation {
+    padding-top: 1rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  #schedule-consultation .section-title {
+    margin-bottom: 0.75rem;
+  }
+  
+  #schedule-consultation .lead {
+    margin-bottom: 0.75rem !important;
   }
 }
 
