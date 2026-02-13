@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Designing Scalable Microservices Architecture: Lessons from Production Systems - Practical insights on building resilient microservices." />
+  <title>Designing Scalable Microservices Architecture | Aman Patial</title>
+  <link rel="stylesheet" href="/styles.css?v=3" />
+</head>
+<body>
+
+<!-- Header will be loaded dynamically -->
+<div id="header-placeholder"></div>
+
+<main style="max-width: 800px; margin: 0 auto; padding: 120px 20px 60px;">
+  <div style="margin-bottom: 3rem;">
+    <a href="../../../blog.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; margin-bottom: 2rem;">
+      ← Back to Blog
+    </a>
+    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; color: var(--text-secondary); font-size: 0.9rem;">
+      <span>📅 January 2026</span>
+      <span>🏷️ Architecture</span>
+      <span>🏷️ Technology Leadership</span>
+    </div>
+  </div>
+
+  <article>
+    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; color: var(--text-primary);">
+      Designing Scalable Microservices Architecture: Lessons from Production Systems
+    </h1>
+
+    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 3rem;">
+      Microservices architecture promises scalability, flexibility, and team autonomy. But the reality of building production-grade microservices is far more complex than the theory suggests. After architecting and scaling multiple microservices platforms, I've learned what works, what doesn't, and what the trade-offs really are.
+    </p>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      The Microservices Decision: When It Makes Sense
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Not every system needs microservices. I've seen teams break apart monoliths prematurely, creating operational complexity without gaining meaningful benefits. The decision to adopt microservices should be driven by clear organizational and technical needs, not just because it's trendy.
+    </p>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      When microservices make sense:
+    </h3>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Multiple teams need independent deployment cycles</li>
+      <li style="margin-bottom: 0.75rem;">Different services have vastly different scaling requirements</li>
+      <li style="margin-bottom: 0.75rem;">You need to use different technology stacks for different domains</li>
+      <li style="margin-bottom: 0.75rem;">Regulatory or compliance requirements demand service isolation</li>
+      <li style="margin-bottom: 0.75rem;">You have mature DevOps practices and monitoring capabilities</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Domain-Driven Design: The Foundation
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      The biggest mistake I see is teams splitting services by technical layers (API, database, cache) rather than business domains. This creates tight coupling and defeats the purpose of microservices.
+    </p>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+      Domain-Driven Design (DDD) provides the mental model for identifying service boundaries. Each microservice should represent a bounded context—a domain where business logic is cohesive and relatively independent. Services like "User Service," "Order Service," and "Payment Service" make sense. Services like "Database Service" or "API Gateway Service" don't.
+    </p>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Communication Patterns: The Critical Challenge
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      How services communicate determines your system's reliability, performance, and complexity. I've seen systems fail because of poor communication design.
+    </p>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      Synchronous vs. Asynchronous:
+    </h3>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Synchronous communication (REST, gRPC) is simpler but creates coupling and cascading failures. Asynchronous communication (message queues, event streaming) provides decoupling but adds complexity.
+    </p>
+
+    <h4 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+      Best practices:
+    </h4>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Use synchronous calls for request-response patterns that need immediate results</li>
+      <li style="margin-bottom: 0.75rem;">Use asynchronous messaging for fire-and-forget operations and event-driven workflows</li>
+      <li style="margin-bottom: 0.75rem;">Implement circuit breakers for all synchronous calls</li>
+      <li style="margin-bottom: 0.75rem;">Use API gateways to centralize cross-cutting concerns (auth, rate limiting, routing)</li>
+      <li style="margin-bottom: 0.75rem;">Implement idempotency for all operations that might be retried</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Data Management: The Distributed Data Challenge
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Each microservice should own its data. This means no shared databases, which eliminates a major source of coupling. But distributed data creates new challenges: consistency, transactions, and data synchronization.
+    </p>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      Strategies for data consistency:
+    </h3>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;"><strong>Saga Pattern:</strong> For distributed transactions, use sagas—sequences of local transactions coordinated through events</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Event Sourcing:</strong> Store events as the source of truth, rebuild state from events</li>
+      <li style="margin-bottom: 0.75rem;"><strong>CQRS:</strong> Separate read and write models for better scalability</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Eventual Consistency:</strong> Accept that data might be temporarily inconsistent across services</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Observability: You Can't Manage What You Can't See
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Microservices amplify the need for observability. With distributed systems, traditional debugging doesn't work. You need distributed tracing, centralized logging, and comprehensive metrics.
+    </p>
+
+    <h4 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+      Essential observability components:
+    </h4>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Distributed tracing (Jaeger, Zipkin) to follow requests across services</li>
+      <li style="margin-bottom: 0.75rem;">Centralized logging (ELK stack, Loki) with structured logs</li>
+      <li style="margin-bottom: 0.75rem;">Metrics and alerting (Prometheus, Grafana)</li>
+      <li style="margin-bottom: 0.75rem;">Service mesh for traffic management and observability</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Key Takeaways
+    </h2>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 1rem;">
+        <strong>Start with a monolith.</strong> Extract microservices only when you have clear boundaries and organizational needs.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Design by domain, not by technology.</strong> Service boundaries should reflect business domains.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Invest in observability early.</strong> You'll need it from day one, not as an afterthought.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Embrace eventual consistency.</strong> Distributed systems require different consistency models.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Automate everything.</strong> Microservices require mature DevOps practices.
+      </li>
+    </ul>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 3rem;">
+      Microservices architecture is powerful when applied correctly, but it's not a silver bullet. The complexity trade-offs are real, and they require organizational maturity to manage effectively. When done right, microservices enable teams to move faster, scale independently, and innovate more freely.
+    </p>
+  </article>
+</main>
+
+<!-- Footer will be loaded dynamically -->
+<div id="footer-placeholder"></div>
+
+<script src="../../../script.js"></script>
+<script>
+// Ensure header loads (backup if script.js loads slowly)
+(function() {
+  setTimeout(function() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder && !headerPlaceholder.querySelector('nav')) {
+      fetch('../../../header.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load header');
+          return response.text();
+        })
+        .then(html => {
+          headerPlaceholder.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading header:', error);
+        });
+    }
+  }, 100);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cloud-Native Architecture: Building for Scale, Resilience, and Cost Efficiency - Practical cloud architecture patterns." />
+  <title>Cloud-Native Architecture: Building for Scale and Resilience | Aman Patial</title>
+  <link rel="stylesheet" href="/styles.css?v=3" />
+</head>
+<body>
+
+<!-- Header will be loaded dynamically -->
+<div id="header-placeholder"></div>
+
+<main style="max-width: 800px; margin: 0 auto; padding: 120px 20px 60px;">
+  <div style="margin-bottom: 3rem;">
+    <a href="../../../blog.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; margin-bottom: 2rem;">
+      ← Back to Blog
+    </a>
+    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; color: var(--text-secondary); font-size: 0.9rem;">
+      <span>📅 December 2025</span>
+      <span>🏷️ Architecture</span>
+      <span>🏷️ Technology Leadership</span>
+    </div>
+  </div>
+
+  <article>
+    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; color: var(--text-primary);">
+      Cloud-Native Architecture: Building for Scale, Resilience, and Cost Efficiency
+    </h1>
+
+    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 3rem;">
+      Cloud-native architecture isn't just about running applications in the cloud—it's about designing systems that leverage cloud capabilities to achieve scale, resilience, and efficiency. After architecting cloud-native platforms for multiple organizations, I've learned that success requires fundamental shifts in how we think about infrastructure and applications.
+    </p>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      The Cloud-Native Mindset
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Cloud-native means treating infrastructure as code, designing for failure, and embracing managed services. It's a shift from "how do I configure servers" to "how do I design systems that scale automatically and recover from failures."
+    </p>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      Core principles:
+    </h3>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;"><strong>Statelessness:</strong> Design applications to be stateless, storing state externally</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Elasticity:</strong> Systems should scale up and down automatically based on demand</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Resilience:</strong> Assume components will fail; design for graceful degradation</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Automation:</strong> Infrastructure and deployments should be fully automated</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Observability:</strong> Systems must be observable, not just monitorable</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Container Orchestration: The Foundation
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Kubernetes has become the de facto standard for container orchestration, and for good reason. It provides the abstractions needed to run distributed systems reliably at scale.
+    </p>
+
+    <h4 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+      Key Kubernetes patterns:
+    </h4>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;"><strong>Deployments:</strong> For stateless applications with rolling updates</li>
+      <li style="margin-bottom: 0.75rem;"><strong>StatefulSets:</strong> For stateful applications requiring stable identities</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Services:</strong> For service discovery and load balancing</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Ingress:</strong> For external traffic routing</li>
+      <li style="margin-bottom: 0.75rem;"><strong>ConfigMaps and Secrets:</strong> For configuration management</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Serverless Architecture: When to Use It
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Serverless computing (AWS Lambda, Azure Functions, Google Cloud Functions) offers true pay-per-use scaling with zero infrastructure management. But it's not right for every workload.
+    </p>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      Serverless is ideal for:
+    </h3>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Event-driven processing (file uploads, webhooks, scheduled tasks)</li>
+      <li style="margin-bottom: 0.75rem;">API endpoints with variable traffic</li>
+      <li style="margin-bottom: 0.75rem;">Data transformation and ETL pipelines</li>
+      <li style="margin-bottom: 0.75rem;">Background jobs and scheduled tasks</li>
+    </ul>
+
+    <h3 style="font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+      Avoid serverless for:
+    </h3>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Long-running processes (cold starts become expensive)</li>
+      <li style="margin-bottom: 0.75rem;">Applications requiring consistent performance</li>
+      <li style="margin-bottom: 0.75rem;">Stateful applications with complex state management</li>
+      <li style="margin-bottom: 0.75rem;">Workloads with predictable, steady traffic (containers are cheaper)</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Multi-Cloud Strategy: When It Makes Sense
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Multi-cloud is often discussed but rarely implemented well. The complexity costs usually outweigh the benefits unless you have specific requirements.
+    </p>
+
+    <h4 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+      Multi-cloud makes sense when:
+    </h4>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Regulatory requirements mandate data residency in specific regions</li>
+      <li style="margin-bottom: 0.75rem;">You need to avoid vendor lock-in for critical systems</li>
+      <li style="margin-bottom: 0.75rem;">Different clouds offer unique capabilities you need</li>
+      <li style="margin-bottom: 0.75rem;">You're large enough that vendor diversification provides leverage</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Cost Optimization in Cloud-Native Systems
+    </h2>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Cloud-native architecture can reduce costs through better resource utilization, but it requires discipline. Left unchecked, cloud costs can spiral.
+    </p>
+
+    <h4 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+      Cost optimization strategies:
+    </h4>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;">Right-size containers and auto-scaling policies</li>
+      <li style="margin-bottom: 0.75rem;">Use spot instances for fault-tolerant workloads</li>
+      <li style="margin-bottom: 0.75rem;">Implement resource quotas and limits</li>
+      <li style="margin-bottom: 0.75rem;">Monitor and alert on cost anomalies</li>
+      <li style="margin-bottom: 0.75rem;">Use managed services strategically (they're often cheaper than DIY)</li>
+    </ul>
+
+    <h2 style="font-size: 2rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary); border-top: 2px solid var(--border-color); padding-top: 2rem;">
+      Key Takeaways
+    </h2>
+
+    <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 1rem;">
+        <strong>Design for failure.</strong> Cloud-native systems assume components will fail; design accordingly.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Embrace managed services.</strong> Focus on business logic, not infrastructure management.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Automate everything.</strong> Manual processes don't scale in cloud-native architectures.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Monitor costs continuously.</strong> Cloud costs can grow unexpectedly without vigilance.
+      </li>
+      <li style="margin-bottom: 1rem;">
+        <strong>Start simple, evolve.</strong> Don't over-engineer; add complexity only when needed.
+      </li>
+    </ul>
+
+    <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 3rem;">
+      Cloud-native architecture enables organizations to build systems that scale automatically, recover from failures gracefully, and optimize costs effectively. But it requires fundamental changes in how we design, deploy, and operate systems. The investment is significant, but the benefits—in terms of scalability, resilience, and team velocity—are transformative.
+    </p>
+  </article>
+</main>
+
+<!-- Footer will be loaded dynamically -->
+<div id="footer-placeholder"></div>
+
+<script src="../../../script.js"></script>
+<script>
+// Ensure header loads (backup if script.js loads slowly)
+(function() {
+  setTimeout(function() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder && !headerPlaceholder.querySelector('nav')) {
+      fetch('../../../header.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load header');
+          return response.text();
+        })
+        .then(html => {
+          headerPlaceholder.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading header:', error);
+        });
+    }
+  }, 100);
+})();
+</script>
+</body>
+</html>

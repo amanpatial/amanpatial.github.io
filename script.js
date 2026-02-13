@@ -1,18 +1,23 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Mobile Menu Toggle - Initialize immediately if navbar exists, or wait for header to load
+function initMobileMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
     });
-  });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  }
 }
+
+// Initialize mobile menu on page load
+initMobileMenu();
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -48,15 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Add active class to current navigation item
-const currentLocation = location.pathname.split('/').pop() || 'index.html';
-const navLinks = document.querySelectorAll('.nav-link');
+function setActiveNavItem() {
+  const currentLocation = location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
 
-navLinks.forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentLocation || (currentLocation === '' && href === 'index.html')) {
-    link.classList.add('active');
-  }
-});
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentLocation || (currentLocation === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Set active nav item on page load
+setActiveNavItem();
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -81,11 +91,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Get base path for loading components (handles subdirectories)
+function getBasePath() {
+  const path = window.location.pathname;
+  // If we're in a category subdirectory (like blog/posts/artificial-intelligence/), go up 3 levels
+  if (path.match(/\/blog\/posts\/[^\/]+\//)) {
+    return '../../../';
+  } else if (path.includes('/blog/posts/')) {
+    return '../../';
+  } else if (path.includes('/blog/')) {
+    return '../';
+  }
+  return '';
+}
+
+// Load header component
+function loadHeader() {
+  const headerPlaceholder = document.getElementById('header-placeholder');
+  if (headerPlaceholder) {
+    const basePath = getBasePath();
+    fetch(basePath + 'header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(html => {
+        headerPlaceholder.innerHTML = html;
+        // Re-initialize navigation after header loads
+        initializeNavigation();
+      })
+      .catch(error => {
+        console.error('Error loading header:', error);
+      });
+  }
+}
+
 // Load footer component
 function loadFooter() {
   const footerPlaceholder = document.getElementById('footer-placeholder');
   if (footerPlaceholder) {
-    fetch('footer.html')
+    const basePath = getBasePath();
+    fetch(basePath + 'footer.html')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -102,11 +150,21 @@ function loadFooter() {
   }
 }
 
-// Load footer when DOM is ready
+// Initialize navigation functionality after header loads
+function initializeNavigation() {
+  initMobileMenu();
+  setActiveNavItem();
+}
+
+// Load header and footer when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadFooter);
+  document.addEventListener('DOMContentLoaded', () => {
+    loadHeader();
+    loadFooter();
+  });
 } else {
   // DOM is already ready
+  loadHeader();
   loadFooter();
 }
 
