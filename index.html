@@ -5,45 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Aman Patial – Solution Architect, Tech Leader, Builder. Helping organizations design scalable systems, lead engineering teams, and adopt modern cloud & AI technologies." />
   <title>Aman Patial | Solution Architect | Tech Leader | Builder</title>
-  <link rel="stylesheet" href="/styles.css?v=3" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://amanpatial.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aman Patial | Solution Architect | Tech Leader" />
+  <meta property="og:description" content="AI-driven transformation leader with two decades of experience in Agentic AI, data, cloud, and enterprise architecture." />
+  <meta property="og:image" content="https://amanpatial.github.io/assets/profile.jpg" />
+  <meta property="og:url" content="https://amanpatial.github.io/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aman Patial | Solution Architect | Tech Leader" />
+  <meta name="twitter:description" content="AI-driven transformation leader helping organizations build Agentic AI platforms and scalable systems." />
+  <meta name="twitter:image" content="https://amanpatial.github.io/assets/profile.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css?v=4" />
 </head>
 <body>
 
 <!-- Header will be loaded dynamically -->
 <div id="header-placeholder"></div>
-<script>
-// Ensure header loads (backup if script.js loads slowly)
-(function() {
-  setTimeout(function() {
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder && !headerPlaceholder.querySelector('nav')) {
-      fetch('header.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load header');
-          return response.text();
-        })
-        .then(html => {
-          headerPlaceholder.innerHTML = html;
-        })
-        .catch(error => {
-          console.error('Error loading header:', error);
-        });
-    }
-  }, 100);
-})();
-</script>
 
-<header class="hero">
+<main>
+<section class="hero" id="hero">
   <div class="container hero-container">
     <div class="hero-profile-wrap">
-      <img src="assets/profile.jpg" alt="" class="hero-profile-pic" onerror="this.style.display='none';var s=this.nextElementSibling;if(s)s.style.display='flex'">
+      <img src="assets/profile.jpg" alt="Aman Patial" class="hero-profile-pic" width="120" height="120" data-fallback>
       <span class="hero-profile-initials" style="display:none" aria-hidden="true">AP</span>
     </div>
     <div class="hero-pill">AI Solutions Architect · Global Technology Leader</div>
     <h1 class="hero-title">Aman <span class="gradient-text">Patial</span></h1>
     <p class="hero-subtitle">Enabling Growth and Innovation with AI</p>
     <p class="hero-description">
-      AI-driven transformation leader with two decades of experience in Agentic AI, data, cloud, and enterprise architecture, helping organizations build Agentic AI platforms and scalable, secure systems that drive real business impact
+      AI-driven transformation leader with two decades of experience in Agentic AI, data, cloud, and enterprise architecture. I help organizations build Agentic AI platforms and scalable, secure systems that drive real business impact.
     </p>
     <div class="hero-highlight-grid">
       <div class="hero-highlight">
@@ -59,7 +61,7 @@
       <div class="hero-highlight">
         <div class="label">Impact</div>
         <h3>1M+ Saving</h3>
-        <p>Automation that improve operational efficiency, CSAT, and compliance</p>
+        <p>Automation that improves operational efficiency, CSAT, and compliance.</p>
       </div>
     </div>
     <div class="hero-stats">
@@ -68,7 +70,7 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat">
-        <div class="stat-number">$5M+ </div>
+        <div class="stat-number">$5M+</div>
         <div class="stat-label">Budget Managed</div>
       </div>
       <div class="stat">
@@ -85,10 +87,9 @@
       <a href="contact.html" class="btn btn-secondary btn-secondary-large">Get In Touch</a>
     </div>
   </div>
-</header>
+</section>
 
-<main>
-  <section class="about-section">
+  <section class="about-section" id="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="about-text">
@@ -143,62 +144,90 @@
     </div>
   </section>
 
-  <section class="achievements-section">
+  <section class="achievements-section" id="achievements">
     <div class="container">
       <h2 class="section-title">Key Achievements</h2>
       <div class="achievements-grid">
         <div class="achievement-card">
-          <div class="achievement-icon">🏗️</div>
+          <div class="achievement-icon" aria-label="Architecture">🏗️</div>
           <h3>Multi-Agent Platform</h3>
           <p>Architected omnichannel, multi-lingual, multi-modal Generative AI platform from MVP to production.</p>
         </div>
         <div class="achievement-card">
-          <div class="achievement-icon">🚀</div>
+          <div class="achievement-icon" aria-label="Scalability">🚀</div>
           <h3>Scalable Systems</h3>
           <p>Designed and delivered scalable architectures for high-traffic and data-intensive applications.</p>
         </div>
         <div class="achievement-card">
-          <div class="achievement-icon">⚡</div>
+          <div class="achievement-icon" aria-label="Performance">⚡</div>
           <h3>3x Performance Boost</h3>
           <p>Optimized system throughput by 300% within six months through architectural and process improvements.</p>
         </div>
         <div class="achievement-card">
-          <div class="achievement-icon">🎯</div>
+          <div class="achievement-icon" aria-label="Cost savings">🎯</div>
           <h3>35% Cost Savings</h3>
-          <p>Achieved 35% annual savings through automation and operational excellence initiatives</p>
+          <p>Achieved 35% annual savings through automation and operational excellence initiatives.</p>
         </div>
         <div class="achievement-card">
-          <div class="achievement-icon">🎯</div>
+          <div class="achievement-icon" aria-label="High availability">⏱️</div>
           <h3>99.9% Uptime</h3>
-          <p>Increased Service uptime from 95.6% to 99.9% through incident management excellence</p>
+          <p>Increased service uptime from 95.6% to 99.9% through incident management excellence.</p>
         </div>
         <div class="achievement-card">
-          <div class="achievement-icon">🛡️</div>
+          <div class="achievement-icon" aria-label="Security">🛡️</div>
           <h3>Enterprise Compliance</h3>
-          <p>Implemented SOC2, ISO27001, PDPA controls for handling sensitive Edutech data</p>
+          <p>Implemented SOC2, ISO27001, PDPA controls for handling sensitive Edutech data.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="education-section">
+  <section class="education-section" id="education">
     <div class="container">
-      <h2 class="section-title">Education & Recognition</h2>
+      <h2 class="section-title">Education</h2>
       <div class="education-grid">
         <div class="education-card">
-          <img src="assets/guru_nanak_dev_university_amritsar_logo.jpeg" alt="Guru Nanak Dev University, Amritsar" class="education-logo">
+          <img src="assets/guru_nanak_dev_university_amritsar_logo.jpeg" alt="Guru Nanak Dev University, Amritsar" class="education-logo" loading="lazy" width="80" height="80">
           <h3>Bachelor of Engineering (Hons)</h3>
-          <div class="degree">
-            Guru Nanak Dev University, Amritsar, India</div>
-          <div class="university"> Computer Science and Engineering</div>
+          <div class="university">Guru Nanak Dev University, Amritsar, India</div>
+          <div class="degree">Computer Science and Engineering</div>
           <div class="year">2002 – 2006</div>
         </div>
         <div class="education-card">
-          <img src="assets/symbiosis_institute_of_management_studies_logo.jpeg" alt="Symbiosis Institute of Management Studies, Pune" class="education-logo">
+          <img src="assets/symbiosis_institute_of_management_studies_logo.jpeg" alt="Symbiosis Institute of Management Studies, Pune" class="education-logo" loading="lazy" width="80" height="80">
           <h3>PGDBA</h3>
-          <div class="degree">Symbiosis Institute of Management Studies, Pune, India</div>
-          <div class="university">International Business</div>
+          <div class="university">Symbiosis Institute of Management Studies, Pune, India</div>
+          <div class="degree">International Business</div>
           <div class="year">2008 – 2010</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications-section" id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-logo">
+            <img src="assets/certs/togaf.svg" alt="TOGAF Certified" loading="lazy">
+          </div>
+          <h4>TOGAF 10 Enterprise Architecture Practitioner</h4>
+          <p>Open Group | 2026</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-logo">
+            <img src="assets/certs/aws.svg" alt="AWS Certified" loading="lazy">
+          </div>
+          <h4>AWS Cloud Solution Architect Associate</h4>
+          <p>Amazon Web Services | 2021</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-logo">
+            <img src="assets/certs/microsoft-ai.svg" alt="Microsoft AI Certified" loading="lazy">
+          </div>
+          <h4>Agentic AI Fundamentals</h4>
+          <p>Microsoft | 2026</p>
         </div>
       </div>
     </div>
@@ -206,11 +235,11 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>Let's Build the Future Together</h2>
-      <p>Interested in AI strategy, multi-agent systems, or in solution architecture? Let's connect.</p>
+      <h2>Ready to Accelerate Your AI Journey?</h2>
+      <p>From strategy to execution — let's turn your AI vision into production-ready systems that deliver measurable business value.</p>
       <div class="cta-buttons">
-        <a href="services.html" class="btn btn-primary btn-primary-large">Explore Services</a>
-        <a href="contact.html" class="btn btn-secondary btn-secondary-large">Get In Touch</a>
+        <a href="services.html" class="btn btn-primary btn-primary-large">View My Services</a>
+        <a href="contact.html" class="btn btn-secondary btn-secondary-large">Schedule a Consultation</a>
       </div>
     </div>
   </section>
@@ -220,26 +249,5 @@
 <div id="footer-placeholder"></div>
 
 <script src="script.js"></script>
-<script>
-// Ensure footer loads (backup if script.js loads slowly)
-(function() {
-  setTimeout(function() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder && !footerPlaceholder.querySelector('footer')) {
-      fetch('footer.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load footer');
-          return response.text();
-        })
-        .then(html => {
-          footerPlaceholder.innerHTML = html;
-        })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
-    }
-  }, 100);
-})();
-</script>
 </body>
 </html>

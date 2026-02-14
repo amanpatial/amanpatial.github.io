@@ -677,14 +677,14 @@ section {
   color: var(--text-primary);
 }
 
-.degree {
+.university {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
-.university {
+.degree {
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
@@ -1593,8 +1593,13 @@ section {
   }
 }
 
+.will-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 .fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* Responsive Design */

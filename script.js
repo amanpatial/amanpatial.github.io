@@ -19,6 +19,24 @@ function initMobileMenu() {
 // Initialize mobile menu on page load
 initMobileMenu();
 
+// Image fallback handler - replaces inline onerror handlers
+function initImageFallbacks() {
+  document.querySelectorAll('img[data-fallback]').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      const fallback = this.nextElementSibling;
+      if (fallback) fallback.style.display = 'flex';
+    });
+    // Trigger error handler if image already failed before listener was attached
+    if (img.complete && img.naturalWidth === 0) {
+      img.dispatchEvent(new Event('error'));
+    }
+  });
+}
+
+// Initialize image fallbacks on page load
+initImageFallbacks();
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -58,8 +76,8 @@ function setActiveNavItem() {
   const navLinks = document.querySelectorAll('.nav-link');
 
   navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentLocation || (currentLocation === '' && href === 'index.html')) {
+    const linkPage = link.getAttribute('href').split('/').pop();
+    if (linkPage === currentLocation || (currentLocation === '' && linkPage === 'index.html')) {
       link.classList.add('active');
     }
   });
@@ -85,9 +103,12 @@ const observer = new IntersectionObserver((entries) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const animateElements = document.querySelectorAll(
-    '.achievement-card, .education-card, .project-card, .service-card, .timeline-item, .expertise-item, .hero-highlight, .stat'
+    '.achievement-card, .education-card, .cert-card, .project-card, .service-card, .timeline-item, .expertise-item, .hero-highlight, .stat'
   );
-  animateElements.forEach(el => observer.observe(el));
+  animateElements.forEach(el => {
+    el.classList.add('will-animate');
+    observer.observe(el);
+  });
 });
 
 
@@ -154,6 +175,7 @@ function loadFooter() {
 function initializeNavigation() {
   initMobileMenu();
   setActiveNavItem();
+  initImageFallbacks();
 }
 
 // Load header and footer when DOM is ready
