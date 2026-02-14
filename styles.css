@@ -355,6 +355,97 @@ body {
   margin: 0 auto;
 }
 
+/* Contact page hero enhancements */
+.contact-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 70%, #162033 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 130px 0 70px;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 50%, rgba(124, 58, 237, 0.06) 0%, transparent 60%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-3%, 2%) scale(1.05); }
+}
+
+.contact-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.contact-hero > .container > p {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+  position: relative;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.hero-actions .btn {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+}
+
+.hero-actions .btn:hover {
+  box-shadow: 0 6px 30px rgba(37, 99, 235, 0.5);
+}
+
+.hero-quick-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.hero-link:hover {
+  color: #fff;
+}
+
+.hero-link svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.hero-link:hover svg {
+  opacity: 1;
+}
+
 /* Buttons */
 .btn {
   padding: 0.9rem 2rem;
@@ -1273,10 +1364,10 @@ section {
 }
 
 .contact-form {
-  background: white;
-  padding: 3rem;
+  background: var(--light-bg);
+  padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .form-group {
@@ -1565,6 +1656,32 @@ section {
     font-size: 2rem;
   }
 
+  .contact-hero {
+    padding: 100px 0 50px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-hero > .container > p {
+    font-size: 1.05rem;
+    max-width: 90%;
+  }
+
+  .hero-actions .btn-primary-large {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .hero-quick-links {
+    gap: 1.25rem;
+  }
+
+  .hero-link span {
+    font-size: 0.9rem;
+  }
+
   .timeline::after {
     left: 31px;
   }
@@ -1631,6 +1748,42 @@ section {
     font-size: 1.75rem;
   }
 
+  .contact-hero {
+    padding: 90px 0 35px;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-hero > .container > p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    margin-top: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .hero-actions .btn-primary-large {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .hero-quick-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-link {
+    font-size: 0.85rem;
+  }
+
   .ideal-client-card {
     padding: 1.5rem;
   }
@@ -1642,7 +1795,7 @@ section {
 
 /* Calendly Widget Styling */
 .calendly-container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0;
   background: #fff;
@@ -1653,8 +1806,8 @@ section {
 
 .calendly-inline-widget {
   width: 100%;
-  min-width: 320px;
-  height: 1000px;
+  min-width: 280px;
+  height: 900px;
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
@@ -1693,8 +1846,8 @@ section {
 
 /* Ensure no extra spacing in Calendly container */
 #schedule-consultation {
-  padding-top: 2rem !important;
-  padding-bottom: 1rem !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0 !important;
 }
 
 #schedule-consultation .contact-content {
@@ -1715,49 +1868,170 @@ section {
   margin-bottom: 0;
 }
 
+/* Calendly - tablet landscape / small desktop */
+@media (max-width: 1024px) {
+  .calendly-container {
+    max-width: 95%;
+  }
+}
+
+/* Calendly - tablet portrait */
 @media (max-width: 768px) {
   .calendly-container {
+    max-width: 100%;
     padding: 0;
-    margin: 0 1rem;
+    margin: 0 0.75rem;
+    border-radius: 10px;
   }
-  
+
   .calendly-inline-widget {
-    height: 800px;
+    height: 850px;
   }
-  
+
   #schedule-consultation {
     padding-top: 1.5rem !important;
     padding-bottom: 0.5rem !important;
   }
 }
 
+/* Calendly - mobile */
 @media (max-width: 480px) {
   .calendly-container {
-    padding: 0;
-    margin: 0 0.5rem;
+    margin: 0;
     border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   }
-  
+
   .calendly-inline-widget {
-    height: 700px;
+    height: 880px;
     min-width: 100%;
   }
-  
+
   #schedule-consultation {
     padding-top: 1rem !important;
     padding-bottom: 0.5rem !important;
   }
-  
+
   #schedule-consultation .section-title {
     margin-bottom: 0.75rem;
   }
-  
+
   #schedule-consultation .lead {
     margin-bottom: 0.75rem !important;
   }
 }
 
-/* FAQ Section Styling */
+/* Very small phones (360px and below - Galaxy S, iPhone SE) */
+@media (max-width: 360px) {
+  .calendly-inline-widget {
+    height: 900px;
+  }
+
+  .contact-hero {
+    padding: 85px 0 30px;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-hero > .container > p {
+    font-size: 0.9rem;
+  }
+
+  .hero-actions .btn-primary-large {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-link {
+    font-size: 0.8rem;
+  }
+
+  .hero-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title::after {
+    width: 60px;
+    height: 3px;
+  }
+
+  .open-to-card {
+    padding: 1rem;
+  }
+
+  .open-to-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .open-to-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .faq-item h3 {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+  }
+
+  .cta-buttons .btn-primary-large,
+  .cta-buttons .btn-secondary-large {
+    padding: 0.8rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Open to section icons */
+.open-to-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.open-to-icon svg {
+  color: white;
+  stroke: white;
+}
+
+/* FAQ Section Styling - Accordion */
 .faq-section {
   padding: 80px 0;
   background: var(--light-bg);
@@ -1769,17 +2043,17 @@ section {
 }
 
 .faq-item {
-  margin-bottom: 2.5rem;
-  padding: 2rem;
+  margin-bottom: 1rem;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-left: 4px solid var(--primary-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .faq-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -1788,14 +2062,45 @@ section {
 }
 
 .faq-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
 }
 
-.faq-item p {
+.faq-toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  padding: 0 1.5rem 1.25rem;
+}
+
+.faq-answer p {
   color: var(--text-secondary);
   line-height: 1.8;
   font-size: 1rem;
@@ -1818,19 +2123,56 @@ section {
   .faq-section {
     padding: 60px 0;
   }
-  
-  .faq-item {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-  }
-  
+
   .faq-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    padding: 1rem 1.25rem;
   }
-  
-  .faq-item p {
-    font-size: 0.95rem;
+
+  .faq-answer {
+    padding: 0 1.25rem;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 400px;
+    padding: 0 1.25rem 1rem;
+  }
+
+  .open-to-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .open-to-card {
+    padding: 1.25rem;
+  }
+
+  .open-to-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .open-to-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 1.05rem;
+  }
+
+  .cta-buttons .btn-primary-large,
+  .cta-buttons .btn-secondary-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
 }
 
@@ -1838,14 +2180,71 @@ section {
   .faq-section {
     padding: 40px 0;
   }
-  
+
   .faq-item {
-    padding: 1.25rem;
     border-left-width: 3px;
   }
-  
+
   .faq-item h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+  }
+
+  .open-to-section {
+    padding: 50px 0;
+  }
+
+  .open-to-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .open-to-card h4 {
+    font-size: 1rem;
+  }
+
+  .open-to-card p {
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    padding: 50px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cta-buttons .btn-primary-large,
+  .cta-buttons .btn-secondary-large {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-section {
+    padding: 2.5rem 0;
   }
 }
 
