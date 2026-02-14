@@ -2468,23 +2468,192 @@ article strong {
   padding: 4rem 2rem;
 }
 
+.blog-empty-state p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Shared utility: section lead paragraph */
+.section-lead {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+/* Page hero sub-paragraph and CTA */
+.page-hero-sub {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: #cbd5e1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-hero-cta {
+  margin-top: 2rem;
+}
+
+/* Project subheading */
+.project-subheading {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Pricing grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  padding: 1.5rem;
+  background: var(--light-bg);
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.pricing-featured {
+  border: 2px solid var(--primary-color);
+}
+
+.pricing-badge {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pricing-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+.pricing-period {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-features {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-features li {
+  padding: 0.5rem 0;
+}
+
+.pricing-cta {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+/* ROI stats grid */
+.roi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.roi-stat {
+  padding: 1.5rem;
+  background: var(--light-bg);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.roi-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.roi-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
   .blog-posts-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .blog-post-card {
     padding: 1.5rem;
   }
-  
+
   .blog-filters {
     gap: 0.75rem;
   }
-  
+
   .filter-btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .client-logos-row {
+    gap: 0.75rem;
+  }
+
+  .client-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .roi-value {
+    font-size: 2rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero-sub {
+    font-size: 1rem;
   }
 }
 
@@ -2492,19 +2661,48 @@ article strong {
   .blog-section {
     padding: 2rem 0;
   }
-  
+
   .blog-filters {
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 0.5rem;
   }
-  
+
   .filter-btn {
     white-space: nowrap;
     flex-shrink: 0;
   }
-  
+
   .blog-post-title {
     font-size: 1.3rem;
+  }
+
+  .testimonial-card-quote {
+    font-size: 0.95rem;
+  }
+
+  .client-badge {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .roi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roi-value {
+    font-size: 1.75rem;
+  }
+
+  .pricing-badge {
+    margin: -1.5rem -1.5rem 0.75rem -1.5rem;
+  }
+
+  .page-hero-sub {
+    font-size: 0.95rem;
+  }
+
+  .project-metrics {
+    flex-direction: column;
   }
 }
